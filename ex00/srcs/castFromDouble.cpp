@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 15:34:12 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/07 00:20:27 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/07 02:32:23 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	__printConversions(double const d)
 	<< std::setprecision(1)
 	<< std::fixed
 	<< "float: ";
-	if (d < FLT_MIN || d > FLT_MAX)
+	if (d && !isinf(d) && (d < FLT_MIN || d > FLT_MAX))
 		std::cout << "impossible" << std::endl;
 	else
 		std::cout << static_cast<float>(d) << "f" << std::endl;
