@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 05:14:48 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/07 05:15:24 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/23 20:17:23 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,6 @@
 
 # include "class/Base.hpp"
 
-class C : public Base
-{
-public:
-	// Destructors
-	virtual ~C(void);
-};
+class C : public Base {};
 
 #endif

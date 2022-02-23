@@ -6,24 +6,23 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:33:00 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/05 15:11:25 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/22 22:41:41 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
+#include <cctype>
 
-bool	isInt(std::string const &input)
+bool	isInt(char const *input)
 {
-	std::string::const_iterator iter;
-
-	iter = input.begin();
-	while (isspace(*iter))
-		++iter;
-	if (*iter == '+' || *iter == '-')
-		++iter;
-	while (isdigit(*iter))
-		++iter;
-	if (*iter || input.empty())
+	if (!*input)
+		return (false);
+	while (isspace(*input))
+		++input;
+	if (*input == '+' || *input == '-')
+		++input;
+	while (isdigit(*input))
+		++input;
+	if (*input)
 		return false;
 	return true;
 }

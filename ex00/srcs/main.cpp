@@ -6,14 +6,13 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 18:32:21 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/05 16:26:01 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/23 19:12:11 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cstdlib>
 #include <iostream>
-#include <string>
-#include "ex00.hpp"
+#include "lookup_cast.hpp"
 
 static int	__usageErr(void)
 {
@@ -35,17 +34,13 @@ static int	__inputErr(void)
 
 int	main(int const ac, char const **av)
 {
-	(void)av;
+	int	i;
+
 	if (ac != 2)
 		return (__usageErr());
-	if (isChar(std::string(av[1])))
-		castFromChar(av[1]);
-	else if (isInt(std::string(av[1])))
-		castFromInt(av[1]);
-	else if (isFloat(std::string(av[1])))
-		castFromFloat(av[1]);
-	else if (isDouble(std::string(av[1])))
-		castFromDouble(av[1]);
+	for (i = 0 ; g_cast[i].checker && !g_cast[i].checker(av[1]) ; ++i);
+	if (g_cast[i].caster)
+		g_cast[i].caster(av[1]);
 	else
 		return (__inputErr());
 	return EXIT_SUCCESS;

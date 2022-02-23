@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 04:30:45 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/07 04:38:27 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/23 19:53:16 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,50 @@
 //                                Constructors                                //
 // ************************************************************************** //
 
-Data::Data(void) :
-	_c(0), _s(0), _i(0), _l(0), _f(0), _d(0)
+Data::Data(
+	char const c,
+	short const s,
+	int const i,
+	long const l,
+	float const f,
+	double const d) :
+	_c(c),
+	_s(s),
+	_i(i),
+	_l(l),
+	_f(f),
+	_d(d)
 {
-	std::cout
-	<< "Creating Data"
-	<< std::endl;
+	if (DEBUG)
+		std::cout
+		<< "Creating Data"
+		<< " (" << this->_c << ")"
+		<< " (" << this->_s << ")"
+		<< " (" << this->_i << ")"
+		<< " (" << this->_l << ")"
+		<< " (" << this->_f << ")"
+		<< " (" << this->_d << ")"
+		<< std::endl;
 }
 
 Data::Data(Data const &src) :
-	_c(src._c), _s(src._s), _i(src._i), _l(src._l), _f(src._f), _d(src._d)
+	_c(src._c),
+	_s(src._s),
+	_i(src._i),
+	_l(src._l),
+	_f(src._f),
+	_d(src._d)
 {
-	std::cout
-	<< "Creating Data"
-	<< std::endl;
-
-	*this = src;
+	if (DEBUG)
+		std::cout
+		<< "Creating Data"
+		<< " (" << this->_c << ")"
+		<< " (" << this->_s << ")"
+		<< " (" << this->_i << ")"
+		<< " (" << this->_l << ")"
+		<< " (" << this->_f << ")"
+		<< " (" << this->_d << ")"
+		<< std::endl;
 }
 
 // ************************************************************************* //
@@ -40,72 +68,121 @@ Data::Data(Data const &src) :
 
 Data::~Data(void)
 {
-	std::cout
-	<< "Destroying Data"
-	<< std::endl;
+	if (DEBUG)
+		std::cout
+		<< "Destroying Data"
+		<< std::endl;
 }
 
 // ************************************************************************* //
 //                                 Accessors                                 //
 // ************************************************************************* //
 
-char	Data::getC(void) const
+char const	&Data::getC(void) const
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling Data::getC()"
+		<< std::endl;
 	return this->_c;
 }
 
-short	Data::getS(void) const
+short const	&Data::getS(void) const
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling Data::getS()"
+		<< std::endl;
 	return this->_s;
 }
 
-int		Data::getI(void) const
+int const	&Data::getI(void) const
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling Data::getI()"
+		<< std::endl;
 	return this->_i;
 }
 
-long	Data::getL(void) const
+long const	&Data::getL(void) const
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling Data::getL()"
+		<< std::endl;
 	return this->_l;
 }
 
-float	Data::getF(void) const
+float const	&Data::getF(void) const
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling Data::getF()"
+		<< std::endl;
 	return this->_f;
 }
 
-double	Data::getD(void) const
+double const	&Data::getD(void) const
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling Data::getD()"
+		<< std::endl;
 	return this->_d;
 }
 
 void	Data::setC(char const c)
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling Data::setC()"
+		<< std::endl;
 	this->_c = c;
 }
 
 void	Data::setS(short const s)
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling Data::setS()"
+		<< std::endl;
 	this->_s = s;
 }
 
 void	Data::setI(int const i)
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling Data::setI()"
+		<< std::endl;
 	this->_i = i;
 }
 
 void	Data::setL(long const l)
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling Data::setL()"
+		<< std::endl;
 	this->_l = l;
 }
 
 void	Data::setF(float const f)
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling Data::setF()"
+		<< std::endl;
 	this->_f = f;
 }
 
 void	Data::setD(double const d)
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling Data::setD()"
+		<< std::endl;
 	this->_d = d;
 }
 
@@ -115,6 +192,10 @@ void	Data::setD(double const d)
 
 Data	&Data::operator=(Data const &rhs)
 {
+	if (DEBUG)
+		std::cout
+		<< "Calling Data::operator=()"
+		<< std::endl;
 	if (this != &rhs)
 	{
 		this->_c = rhs._c;

@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 05:07:30 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/07 05:08:25 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/23 20:35:23 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 class Base
 {
 public:
-	// Destructors
-	virtual ~Base(void);
+	virtual	~Base() {}
 };
 
 #endif

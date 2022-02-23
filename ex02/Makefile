@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/07 05:05:25 by jodufour          #+#    #+#              #
-#    Updated: 2022/02/07 05:41:07 by jodufour         ###   ########.fr        #
+#    Updated: 2022/02/23 20:31:04 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,12 +34,6 @@ PRV_DIR			=	private/
 #            SOURCE FILES            #
 ######################################
 SRC				=	\
-					${addprefix class/,	\
-						A.cpp			\
-						B.cpp			\
-						Base.cpp		\
-						C.cpp			\
-					}					\
 					generate.cpp		\
 					identify.cpp		\
 					main.cpp
@@ -56,6 +50,7 @@ DEP				=	${OBJ:.o=.d}
 #                FLAGS                #
 #######################################
 CPPFLAGS		=	-Wall -Wextra -Werror
+CPPFLAGS		+=	-Wshadow
 CPPFLAGS		+=	-std=c++98
 CPPFLAGS		+=	-MMD -MP
 CPPFLAGS		+=	-I${PRV_DIR}
@@ -64,6 +59,7 @@ LDFLAGS			=
 
 ifeq (${DEBUG}, 1)
 	CPPFLAGS	+=	-g
+	CPPFLAGS	+=	-DDEBUG=1
 endif
 
 #######################################

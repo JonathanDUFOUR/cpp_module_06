@@ -6,32 +6,32 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 14:31:41 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/05 15:11:49 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/22 22:53:02 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
+#include <cctype>
+#include <cstring>
 
-bool	isDouble(std::string const &input)
+bool	isDouble(char const *input)
 {
-	std::string::const_iterator	iter;
-
-	iter = input.begin();
-	while (isspace(*iter))
-		++iter;
-	if (!input.compare(iter - input.begin(), input.length(), "nan"))
+	if (!*input)
+		return false;
+	while (isspace(*input))
+		++input;
+	if (!strcmp(input, "nan"))
 		return true;
-	if (*iter == '+' || *iter == '-')
-		++iter;
-	if (!input.compare(iter - input.begin(), input.length(), "inf"))
+	if (*input == '+' || *input == '-')
+		++input;
+	if (!strcmp(input, "inf"))
 		return true;
-	while (isdigit(*iter))
-		++iter;
-	if (*iter == '.')
-		++iter;
-	while (isdigit(*iter))
-		++iter;
-	if (*iter || input.empty())
+	while (isdigit(*input))
+		++input;
+	if (*input == '.')
+		++input;
+	while (isdigit(*input))
+		++input;
+	if (*input)
 		return false;
 	return true;
 }

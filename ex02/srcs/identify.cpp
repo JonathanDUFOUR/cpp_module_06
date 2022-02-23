@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 05:32:47 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/07 05:45:11 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/23 20:38:19 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,19 @@ void	identify(Base *p)
 		dynamic_cast<A &>(*p);
 		std::cout << "\t" "identified: A" << std::endl;
 	}
-	catch(const std::exception& e) {}
+	catch (std::exception const &e) {}
 	try
 	{
 		dynamic_cast<B &>(*p);
 		std::cout << "\t" "identified: B" << std::endl;
 	}
-	catch(const std::exception& e) {}
+	catch (std::exception const &e) {}
 	try
 	{
 		dynamic_cast<C &>(*p);
 		std::cout << "\t" "identified: C" << std::endl;
 	}
-	catch(const std::exception& e) {}
+	catch (std::exception const &e) {}
 	
 }
 
@@ -47,17 +47,17 @@ void	identify(Base &p)
 		dynamic_cast<A &>(p);
 		std::cout << "\t" "identified: A" << std::endl;
 	}
-	catch(const std::exception& e) {}
+	catch (std::exception const &e) {}
 	try
 	{
 		dynamic_cast<B &>(p);
 		std::cout << "\t" "identified: B" << std::endl;
 	}
-	catch(const std::exception& e) {}
+	catch (std::exception const &e) {}
 	try
 	{
 		dynamic_cast<C &>(p);
 		std::cout << "\t" "identified: C" << std::endl;
 	}
-	catch(const std::exception& e) {}
+	catch (std::exception const &e) {}
 }
