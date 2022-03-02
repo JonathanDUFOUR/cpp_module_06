@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 18:32:21 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/23 19:12:11 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/03/02 20:13:21 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ static int	__inputErr(void)
 
 int	main(int const ac, char const **av)
 {
-	int	i;
+	uint	idx(0);
 
 	if (ac != 2)
 		return (__usageErr());
-	for (i = 0 ; g_cast[i].checker && !g_cast[i].checker(av[1]) ; ++i);
-	if (g_cast[i].caster)
-		g_cast[i].caster(av[1]);
+	for ( ; g_cast[idx].checker && !g_cast[idx].checker(av[1]) ; ++idx);
+	if (g_cast[idx].caster)
+		g_cast[idx].caster(av[1]);
 	else
 		return (__inputErr());
 	return EXIT_SUCCESS;

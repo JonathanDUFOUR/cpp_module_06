@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 15:35:20 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/06 23:32:58 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/03/02 20:34:41 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,12 @@ static void	__printConversions(int const i)
 
 void	castFromInt(char const *input)
 {
-	int const	i = static_cast<int>(strtol(input, NULL, 10));
+	long const	l(strtol(input, NULL, 10));
 
 	if (!errno
-		&& strtol(input, NULL, 10) >= INT_MIN
-		&& strtol(input, NULL, 10) <= INT_MAX)
-		__printConversions(i);
+		&& l >= INT_MIN
+		&& l <= INT_MAX)
+		__printConversions(static_cast<int>(l));
 	else
 		__printImpossible();
 }

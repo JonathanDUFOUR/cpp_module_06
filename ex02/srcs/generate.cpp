@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 05:18:06 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/07 05:40:23 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/03/02 20:26:10 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@
 
 Base	*generate(void)
 {
-	int const	i = rand() % 3;
-
-	switch (i)
+	switch (rand() % 3)
 	{
 	case 0:
 		std::cout << "Generating A" << std::endl;
@@ -34,9 +32,6 @@ Base	*generate(void)
 		std::cout << "Generating C" << std::endl;
 		return new C;
 		break;
-	default:
-		std::cout << "Error: generate()" << std::endl;
-		return NULL;
-		break;
 	}
+	return NULL;
 }

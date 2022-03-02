@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 05:06:42 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/23 20:42:47 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/28 20:01:18 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ int	main(void)
 
 	if (!p)
 		return EXIT_FAILURE;
+	std::cout << "Using identify(Base *):" << std::endl;
 	identify(p);
+	std::cout << "Using identify(Base &):" << std::endl;
 	identify(*p);
 	delete p;
 	return EXIT_SUCCESS;

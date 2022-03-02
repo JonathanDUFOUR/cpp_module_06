@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 15:34:45 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/07 00:20:40 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/03/02 20:19:26 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	__printConversions(float const f)
 
 void	castFromFloat(char const *input)
 {
-	float const		f = strtof(input, NULL);
+	float const		f(strtof(input, NULL));
 
 	if (!errno)
 		__printConversions(f);
