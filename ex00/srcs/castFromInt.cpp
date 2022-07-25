@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cerrno>
 #include <climits>
 #include <cstdlib>
 #include <iomanip>
@@ -47,9 +46,7 @@ void	castFromInt(char const *input)
 {
 	long const	l(strtol(input, NULL, 10));
 
-	if (!errno
-		&& l >= INT_MIN
-		&& l <= INT_MAX)
+	if (l >= INT_MIN && l <= INT_MAX)
 		__printConversions(static_cast<int>(l));
 	else
 		__printImpossible();
