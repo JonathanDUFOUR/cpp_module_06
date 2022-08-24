@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 15:33:35 by jodufour          #+#    #+#             */
-/*   Updated: 2022/03/02 20:16:45 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/08/24 21:56:17 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,16 @@ void	castFromChar(char const *input)
 	float const		f(static_cast<float>(c));
 	double const	d(static_cast<double>(c));
 
-	std::cout << "char: " << "'" << c << "'" << std::endl
-	<< "int: " << i << std::endl
+	std::cout << "char: ";
+	if (!isprint(c))
+		std::cout << "Non displayable" << '\n';
+	else
+		std::cout << "'" << c << "'" << '\n';
+	std::cout
+	<< "int: " << i << '\n'
 	<< std::setprecision(1)
 	<< std::fixed
-	<< "float: " << f << "f" << std::endl
-	<< "double: " << d << std::endl
+	<< "float: " << f << "f" << '\n'
+	<< "double: " << d << '\n'
 	<< std::setprecision(0);
 }
